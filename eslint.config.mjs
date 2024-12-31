@@ -4,6 +4,10 @@ import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 
 
+const rules = {
+  "react/react-in-jsx-scope": "off"
+}
+
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
@@ -11,4 +15,5 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
+  { rules }
 ];
