@@ -1,5 +1,15 @@
+import { interceptResponse } from './interceptors';
+
 const clientId = '188dc6d87593421f945e34943bc117cd';
 const redirectUri = 'http://localhost:3000/callback';
+
+interceptResponse((response) => {
+  if (response.status === 401) {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('code_verifier');
+    window.location.href = '/';
+  }
+})
 
 export const login = async () => {
   const generateRandomString = (length) => {

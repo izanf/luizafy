@@ -1,11 +1,13 @@
-import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Login from './Login'
-import Callback from './Callback'
+import Callback from './Login/Callback'
 import Home from './Home'
 import Artists from './Artists'
 import Playlists from './Playlists'
 import Profile from './Profile'
+
+import Layout from './components/Layout';
 
 export const ProtectedRoute = ({ children }) => {
   const code = localStorage.getItem('access_token');
@@ -14,7 +16,11 @@ export const ProtectedRoute = ({ children }) => {
     return <Navigate to="/login" />;
   }
 
-  return children;
+  return (
+    <Layout>
+      {children}
+    </Layout>
+  );
 };
 
 const Router = () => {
