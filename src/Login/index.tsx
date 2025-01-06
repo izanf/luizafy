@@ -1,7 +1,10 @@
+import { login } from '../services/spotify'
+
 export default function Login() {
   return (
     <div>
-      login
+      <p>Tela de login</p>
+      <button onClick={login}>login</button>
     </div>
   )
 }
