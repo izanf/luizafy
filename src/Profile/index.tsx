@@ -1,9 +1,14 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
-import { getProfile } from "../services/spotify"
+import * as C from './styles';
+import { Button, Avatar } from '../components';
+
+import type { SpotifyUser } from '../types/spotify.type';
+
+import { getProfile } from "../services/spotify";
 
 export default function Profile() {
-  const [profile, setProfile] = useState(null)
+  const [profile, setProfile] = useState<SpotifyUser | null>(null)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,11 +18,15 @@ export default function Profile() {
     }
 
     fetchData()
-  }, [])
+  }, []);
+
+  if (!profile) return null
 
   return (
-    <div>
-      profile
-    </div>
-  )
-}
+    <C.Wrapper>
+      <Avatar image={profile.images[0].url} name={profile.display_name} />
+      <C.Name>{profile.display_name}</C.Name>
+      <Button>Sair</Button>
+    </C.Wrapper>
+  );
+};
