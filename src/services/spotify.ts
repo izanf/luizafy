@@ -1,30 +1,36 @@
 import { interceptResponse } from './interceptors';
 
-const clientId = '188dc6d87593421f945e34943bc117cd';
+import type { SpotifyUser } from '../types/spotify.type';
+
+const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID ?? '';
 const redirectUri = 'http://localhost:3000/callback';
 
 interceptResponse((response) => {
   if (response.status === 401) {
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('code_verifier');
-    window.location.href = '/';
+    logout()
   }
 })
 
+export const logout = () => {
+  localStorage.removeItem('access_token');
+  localStorage.removeItem('code_verifier');
+  window.location.href = '/';
+}
+
 export const login = async () => {
-  const generateRandomString = (length) => {
-    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const values = crypto.getRandomValues(new Uint8Array(length));
-    return values.reduce((acc, x) => acc + possible[x % possible.length], "");
+  const generateRandomString = (length: number): string => {
+    const possible: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const values: Uint8Array = crypto.getRandomValues(new Uint8Array(length));
+    return values.reduce((acc: string, x: number) => acc + possible[x % possible.length], "");
   }
 
-  const sha256 = async (plain) => {
+  const sha256 = async (plain: string): Promise<ArrayBuffer> => {
     const encoder = new TextEncoder()
     const data = encoder.encode(plain)
     return window.crypto.subtle.digest('SHA-256', data)
   }
 
-  const base64encode = (input) => {
+  const base64encode = (input: ArrayBuffer): string => {
     return btoa(String.fromCharCode(...new Uint8Array(input)))
       .replace(/=/g, '')
       .replace(/\+/g, '-')
@@ -77,7 +83,7 @@ export const getToken = async (code: string) => {
   }
 }
 
-export const getProfile = async () => {
+export const getProfile = async (): Promise<SpotifyUser> => {
   const accessToken = localStorage.getItem('access_token');
 
   const response = await fetch('https://api.spotify.com/v1/me', {

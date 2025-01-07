@@ -1,9 +1,15 @@
 import * as C from './styles';
 
 import logo from '../../assets/images/logo.svg';
-import Icon from '../Icon';
+import Icon, { IconsType } from '../Icon';
 
-const MENU_ITEMS = [
+type MenuItem = {
+  label: string;
+  path: string;
+  icon: IconsType;
+}
+
+export const MENU_ITEMS: MenuItem[] = [
   { label: 'Home', path: '/', icon: 'home' },
   { label: 'Artistas', path: '/artists', icon: 'disc' },
   { label: 'Playlists', path: '/playlists', icon: 'play' },

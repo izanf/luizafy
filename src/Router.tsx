@@ -7,7 +7,7 @@ import Artists from './Artists'
 import Playlists from './Playlists'
 import Profile from './Profile'
 
-import Layout from './components/Layout';
+import { Layout } from './components';
 
 export const ProtectedRoute = ({ children }) => {
   const code = localStorage.getItem('access_token');

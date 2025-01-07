@@ -2,8 +2,10 @@ import * as C from './styles';
 
 import * as icons from '../../assets/icons';
 
-type IconProps = {
-  name: keyof typeof icons;
+export type IconsType = keyof typeof icons;
+
+interface IconProps {
+  name: IconsType;
 }
 
 const Icon = ({ name }: IconProps) => {
@@ -11,7 +13,7 @@ const Icon = ({ name }: IconProps) => {
 
   return (
     <C.Figure>
-      <C.Image src={SelectedComponent} />
+      <C.Image src={SelectedComponent} alt={name} />
     </C.Figure>
   )
 }
