@@ -20,7 +20,12 @@ export const Content = styled.div`
 
 export const Title = styled.h2`
   color: white;
-  font-size: .9rem;
+  font-size: 1rem;
+  margin: 0;
 `;
 
-export const Description = styled.p``;
+export const Description = styled.p`
+  font-size: .8125rem;
+  color: #EEE;
+  margin: .5rem 0 0;
+`;
