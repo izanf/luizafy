@@ -5,14 +5,14 @@ import { Button, Avatar } from '../components';
 
 import type { SpotifyUser } from '../types/spotify.type';
 
-import { getProfile } from "../services/spotify";
+import { getSpotify, logout } from "../services/spotify";
 
 export default function Profile() {
   const [profile, setProfile] = useState<SpotifyUser | null>(null)
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getProfile()
+      const data = await getSpotify<SpotifyUser>('/me')
 
       setProfile(data)
     }
@@ -26,7 +26,7 @@ export default function Profile() {
     <C.Wrapper>
       <Avatar image={profile.images[0].url} name={profile.display_name} />
       <C.Name>{profile.display_name}</C.Name>
-      <Button>Sair</Button>
+      <Button onClick={logout}>Sair</Button>
     </C.Wrapper>
   );
 };

@@ -19,7 +19,7 @@ export const MENU_ITEMS: MenuItem[] = [
 const Menu = () => {
   return (
     <C.Wrapper>
-      <img src={logo} alt="Luizafy" />
+      <C.Logo src={logo} alt="Luizafy" />
       <C.MenuList>
         {MENU_ITEMS.map(({ label, icon, path }, index) => (
           <C.MenuItem key={`menu-item-${index}`}>

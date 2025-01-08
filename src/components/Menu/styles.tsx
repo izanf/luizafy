@@ -5,6 +5,8 @@ export const Wrapper = styled.div`
   padding: 2rem 5rem 2rem 2rem;
 `;
 
+export const Logo = styled.img``;
+
 export const MenuList = styled.ul`
   list-style: none;
   padding: 0rem;

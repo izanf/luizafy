@@ -1,7 +1,5 @@
 import { interceptResponse } from './interceptors';
 
-import type { SpotifyUser } from '../types/spotify.type';
-
 const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID ?? '';
 const redirectUri = 'http://localhost:3000/callback';
 
@@ -41,7 +39,7 @@ export const login = async () => {
   const hashed = await sha256(codeVerifier);
   const codeChallenge = base64encode(hashed);
 
-  const scope = 'user-read-private user-read-email';
+  const scope = 'user-read-private user-read-email user-follow-read';
   const authUrl = new URL("https://accounts.spotify.com/authorize")
 
   window.localStorage.setItem('code_verifier', codeVerifier);
@@ -83,10 +81,10 @@ export const getToken = async (code: string) => {
   }
 }
 
-export const getProfile = async (): Promise<SpotifyUser> => {
+export const getSpotify = async <T>(endpoint: string): Promise<T> => {
   const accessToken = localStorage.getItem('access_token');
 
-  const response = await fetch('https://api.spotify.com/v1/me', {
+  const response = await fetch(`https://api.spotify.com/v1${endpoint}`, {
     headers: {
       Authorization: 'Bearer ' + accessToken
     }

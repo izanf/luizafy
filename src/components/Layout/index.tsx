@@ -1,18 +1,17 @@
-import { Outlet } from 'react-router-dom';
-
 import * as C from './styles';
+import Menu from '../Menu';
 import GlobalStyle from '../../GlobalStyle';
 
-import Menu from '../Menu';
+interface LayoutProps {
+  children: React.ReactNode;
+}
 
-const Layout = ({ children }) => {
+const Layout = ({ children }: LayoutProps) => {
   return (
     <C.Wrapper>
       <GlobalStyle />
       <Menu />
-      <C.Content>
-        {children}
-      </C.Content>
+      {children}
     </C.Wrapper>
   )
 }
