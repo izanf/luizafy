@@ -1,8 +1,8 @@
 # Luizafy
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto foi feito utilizando [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Scripts disponíveis
 - `npm run start`
 - `npm run build`
 - `npm run test`
