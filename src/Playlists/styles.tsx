@@ -19,7 +19,7 @@ export const Title = styled.h1`
 `;
 
 export const Description = styled.h2`
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: #D3DADD;
   margin: .5rem 0;
 `;
