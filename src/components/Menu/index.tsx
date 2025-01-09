@@ -1,6 +1,6 @@
 import * as C from './styles';
 
-import logo from '../../assets/images/logo.svg';
+import logo from '../../assets/images/logo.png';
 import Icon, { IconsType } from '../Icon';
 
 type MenuItem = {
@@ -10,10 +10,10 @@ type MenuItem = {
 }
 
 export const MENU_ITEMS: MenuItem[] = [
-  { label: 'Home', path: '/', icon: 'home' },
-  { label: 'Artistas', path: '/artists', icon: 'disc' },
-  { label: 'Playlists', path: '/playlists', icon: 'play' },
-  { label: 'Perfil', path: '/profile', icon: 'user' }
+  { label: 'Home', path: '/', icon: 'Home' },
+  { label: 'Artistas', path: '/artists', icon: 'Disc' },
+  { label: 'Playlists', path: '/playlists', icon: 'Play' },
+  { label: 'Perfil', path: '/profile', icon: 'User' }
 ]
 
 const Menu = () => {

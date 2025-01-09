@@ -1,6 +1,6 @@
 import { login } from '../services/spotify';
 
-import logo from '../assets/images/logo.svg';
+import logo from '../assets/images/logo.png';
 
 import { Button }from '../components';
 

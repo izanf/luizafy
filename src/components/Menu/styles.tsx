@@ -24,6 +24,10 @@ export const MenuItem = styled.li`
 
     &:hover {
       color: white;
+  
+      svg {
+        color: white;
+      }
     }
   }
 
