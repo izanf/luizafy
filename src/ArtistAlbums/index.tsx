@@ -7,13 +7,13 @@ import { formatDate } from '../utils';
 
 import { GenericCard, Icon, Avatar } from '../components';
 
-import { AlbumItemType } from '../types/spotify.type';
+import { AlbumItemType, ArtistProfileType } from '../types/spotify.type';
 
 import { useFetchPaginated, useInfiniteScroll } from '../hooks';
 import { getSpotify } from '../services/spotify';
 
 export default function ArtistAlbums() {
-  const [profile, setProfile] = useState(null);
+  const [profile, setProfile] = useState<ArtistProfileType>(null);
   const pageRef = useRef<HTMLDivElement>(null!);
   const navigate = useNavigate();
   const { artistId } = useParams();
@@ -26,7 +26,7 @@ export default function ArtistAlbums() {
 
   const getArtistProfile = async () => {
     try {
-      const response = await getSpotify(`/artists/${artistId}`)
+      const response = await getSpotify<ArtistProfileType>(`/artists/${artistId}`)
 
       setProfile(response)
     } catch (err) {

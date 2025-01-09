@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import type { SpotifyPaginationType } from '../types/spotify.type';
+import type { SpotifyPaginationType, SpotifyFetchResponse } from '../types/spotify.type';
 
 import { getSpotify } from "../services/spotify";
 
@@ -20,7 +20,7 @@ const useFetchPaginated = <T,>(endpoint: string): UseFetchPaginated<T> => {
 
   const getData = async () => {
     const offset = ITEMS_LIMIT * pagination.currentPage;
-    const { items, limit, total } = await getSpotify<T>(`${endpoint}?limit=${ITEMS_LIMIT}&offset=${offset}`);
+    const { items, limit, total } = await getSpotify<SpotifyFetchResponse<T>>(`${endpoint}?limit=${ITEMS_LIMIT}&offset=${offset}`);
 
     setData(prev => [...prev, ...items]);
     setPagination((prev) => ({ limit, total , currentPage: prev.currentPage + 1 }));

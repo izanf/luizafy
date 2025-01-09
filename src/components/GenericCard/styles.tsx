@@ -17,6 +17,7 @@ export const Pressable = styled.a`
 `;
 
 export const Content = styled.div`
+  flex: 1;
   margin-left: 1rem;
 `;
 

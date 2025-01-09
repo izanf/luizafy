@@ -6,8 +6,6 @@ const useInfiniteScroll = (ref: React.RefObject<HTMLDivElement>, callback: VoidF
     if (ref.current) {
       const { scrollHeight, scrollTop, clientHeight } = ref.current;
 
-      console.log(scrollHeight - scrollTop, clientHeight)
-
       if (scrollHeight - scrollTop === clientHeight) {
         callback();
       }

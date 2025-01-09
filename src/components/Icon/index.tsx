@@ -1,6 +1,7 @@
 import * as C from './styles';
 
 import * as icons from '../../assets/icons';
+import Disc from '../../assets/icons/disc.svg';
 
 export type IconsType = keyof typeof icons;
 
@@ -22,7 +23,8 @@ const Icon = ({ name, size = 'medium' }: IconProps) => {
 
   return (
     <C.Figure size={ICON_SIZES[size]}>
-      <C.Image src={SelectedComponent} alt={name} />
+      <Disc />
+      {/* <SelectedComponent aria-label={name} /> */}
     </C.Figure>
   )
 }

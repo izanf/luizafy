@@ -102,3 +102,8 @@ export type ArtistItemType = {
   type: string;
   uri: string;
 }
+
+export type ArtistProfileType = {
+  images: Image[];
+  name: string;
+}
