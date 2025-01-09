@@ -22,11 +22,6 @@ export type SpotifyUser = {
   }[];
 };
 
-type PlaylistTracks = {
-  href: string;
-  total: number;
-}
-
 type Image = {
   url: string;
   height: number;
@@ -37,15 +32,6 @@ type ExternalUrls = {
   spotify: string
 }
 
-type PlaylistOwner = {
-  display_name: string;
-  external_urls: ExternalUrls;
-  href: string;
-  id: string;
-  type: string;
-  uri: string;
-}
-
 export type PlaylistItemType = {
   collaborative: boolean;
   description: string;
@@ -54,11 +40,9 @@ export type PlaylistItemType = {
   id: string;
   images: Image[];
   name: string;
-  owner: PlaylistOwner;
   primary_color: string | null;
   public: boolean;
   snapshot_id: string;
-  tracks: PlaylistTracks;
   type: string;
   uri: string;
 }
