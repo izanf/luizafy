@@ -25,13 +25,9 @@ export default function ArtistAlbums() {
   }));
 
   const getArtistProfile = useCallback(async () => {
-    try {
-      const response = await getSpotify<ArtistProfileType>(`/artists/${artistId}`)
+    const response = await getSpotify<ArtistProfileType>(`/artists/${artistId}`)
 
-      setProfile(response)
-    } catch (err) {
-      console.log(err)
-    }
+    setProfile(response)
   }, [artistId])
 
   useEffect(() => {
