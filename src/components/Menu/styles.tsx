@@ -10,6 +10,7 @@ export const Logo = styled.img``;
 export const MenuList = styled.ul`
   list-style: none;
   padding: 0rem;
+  margin: 2rem 0;
 `;
 
 export const MenuItem = styled.li`

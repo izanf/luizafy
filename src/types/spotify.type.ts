@@ -20,66 +20,30 @@ export type SpotifyUser = {
     url: string;
     width: number;
   }[];
-  product: string;
-  type: string;
-  uri: string;
 };
 
-export type SpotifyArtistsResponse = {
-  artists: {
-    href: string;
-    limit: number;
-    next: string | null;
-    cursors: {
-      after: string;
-    };
-    total: number;
-    items: ArtistType[];
-  };
-};
-
-export type ArtistType = {
-  external_urls: {
-    spotify: string;
-  };
-  followers: {
-    href: string | null;
-    total: number;
-  };
-  genres: string[];
+type PlaylistTracks = {
   href: string;
-  id: string;
-  images: Image[];
-  name: string;
-  popularity: number;
-  type: string;
-  uri: string;
-};
+  total: number;
+}
 
 type Image = {
   url: string;
   height: number;
   width: number;
-};
+}
 
-type PlaylistImage = {
-  height: number | null;
-  url: string;
-  width: number | null;
+type ExternalUrls = {
+  spotify: string
 }
 
 type PlaylistOwner = {
   display_name: string;
-  external_urls: { spotify: string };
+  external_urls: ExternalUrls;
   href: string;
   id: string;
   type: string;
   uri: string;
-}
-
-type PlaylistTracks = {
-  href: string;
-  total: number;
 }
 
 export type PlaylistItemType = {
@@ -88,7 +52,7 @@ export type PlaylistItemType = {
   external_urls: { spotify: string };
   href: string;
   id: string;
-  images: PlaylistImage[];
+  images: Image[];
   name: string;
   owner: PlaylistOwner;
   primary_color: string | null;
@@ -99,12 +63,42 @@ export type PlaylistItemType = {
   uri: string;
 }
 
-export type SpotifyPlaylistsResponse = {
-  href: string;
+export type SpotifyPaginationType = {
   limit: number;
-  next: string | null;
-  offset: number;
-  previous: string | null;
   total: number;
-  items: PlaylistItemType[];
+  currentPage: number;
+  offset?: number;
+  href?: string;
+  next?: string;
+  previous?: string;
+}
+
+export type SpotifyFetchResponse<T> = SpotifyPaginationType & {
+  items: T[];
+}
+
+export type AlbumItemType = {
+  album_type: string;
+  total_tracks: number;
+  available_markets: string[];
+  external_urls: ExternalUrls;
+  href: string;
+  id: string;
+  images: Image[];
+  name: string;
+  release_date: string;
+  release_date_precision: string;
+  type: string;
+  uri: string;
+  artists: ArtistItemType[];
+  album_group?: string;
+}
+
+export type ArtistItemType = {
+  external_urls: ExternalUrls;
+  href: string;
+  id: string;
+  name: string;
+  type: string;
+  uri: string;
 }

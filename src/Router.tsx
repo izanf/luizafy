@@ -4,6 +4,7 @@ import Login from './Login'
 import Callback from './Login/Callback'
 import Home from './Home'
 import Artists from './Artists'
+import ArtistAlbums from './ArtistAlbums'
 import Playlists from './Playlists'
 import Profile from './Profile'
 
@@ -37,6 +38,11 @@ const Router = () => {
         <Route path="/artists" element={
           <ProtectedRoute>
             <Artists />
+          </ProtectedRoute>
+        } />
+        <Route path="/artists/:artistId/albums" element={
+          <ProtectedRoute>
+            <ArtistAlbums />
           </ProtectedRoute>
         } />
         <Route path="/playlists" element={

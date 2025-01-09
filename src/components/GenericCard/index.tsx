@@ -5,13 +5,14 @@ import Avatar from '../Avatar';
 interface GenericCardProps {
   title: string;
   image: string;
-  path: string;
+  onClick?: VoidFunction;
   description?: string;
+  avatarRounded?: boolean;
 };
 
-const GenericCard = ({ title, description, image, path }: GenericCardProps) => (
-  <C.Pressable href={path} target="_blank" rel="noreferrer">
-    <Avatar image={image} name={title} size="small" />
+const GenericCard = ({ title, description, image, avatarRounded, onClick }: GenericCardProps) => (
+  <C.Pressable onClick={onClick}>
+    <Avatar image={image} name={title} size="small" rounded={avatarRounded} />
     <C.Content>
       <C.Title>{title}</C.Title>
       {description && <C.Description>{description}</C.Description>}

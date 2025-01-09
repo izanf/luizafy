@@ -1,3 +1,4 @@
+import { SpotifyFetchResponse } from '../types/spotify.type';
 import { interceptResponse } from './interceptors';
 
 const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID ?? '';
@@ -81,7 +82,7 @@ export const getToken = async (code: string) => {
   }
 }
 
-export const getSpotify = async <T>(endpoint: string): Promise<T> => {
+export const getSpotify = async <T>(endpoint: string): Promise<SpotifyFetchResponse<T>> => {
   const accessToken = localStorage.getItem('access_token');
 
   const response = await fetch(`https://api.spotify.com/v1${endpoint}`, {

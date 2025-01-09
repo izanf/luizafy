@@ -24,7 +24,7 @@ export default function Profile() {
 
   return (
     <C.Wrapper>
-      <Avatar image={profile.images[0].url} name={profile.display_name} />
+      <Avatar image={profile.images[0].url} name={profile.display_name} rounded />
       <C.Name>{profile.display_name}</C.Name>
       <Button onClick={logout}>Sair</Button>
     </C.Wrapper>

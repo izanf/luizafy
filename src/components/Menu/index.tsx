@@ -24,7 +24,7 @@ const Menu = () => {
         {MENU_ITEMS.map(({ label, icon, path }, index) => (
           <C.MenuItem key={`menu-item-${index}`}>
             <a href={path}>
-              <Icon name={icon} />
+              <Icon name={icon} size="small" />
               <span>{label}</span>
             </a>
           </C.MenuItem>

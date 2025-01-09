@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import { useNavigate } from "react-router";
 
 import { GenericCard } from '../components';
 
@@ -7,12 +8,13 @@ import * as C from './styles';
 import useArtists from "./useArtists";
 
 export default function Artists() {
+  const navigate = useNavigate();
   const pageRef = useRef<HTMLDivElement>(null);
   const { data, hasNext, getArtists} = useArtists();
-  const artists = data.map(({ name, images, external_urls }) => ({
+  const artists = data.map(({ name, images, id }) => ({
     title: name,
     image: images[0].url,
-    path: external_urls.spotify
+    onClick: () => navigate(`/artists/${id}/albums`)
   }));
 
   const handleScroll = () => {
@@ -43,7 +45,7 @@ export default function Artists() {
         <C.Title>Top Artistas</C.Title>
         <C.Description>Aqui você encontra seus artistas preferidos</C.Description>
       </C.Header>
-      {artists.map((artist, index) => <GenericCard key={index} {...artist} />)}
+      {artists.map((artist, index) => <GenericCard key={index} {...artist} avatarRounded />)}
     </C.Wrapper>
   );
 };

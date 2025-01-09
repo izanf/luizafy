@@ -9,6 +9,8 @@ export const Pressable = styled.a`
   cursor: pointer;
   text-decoration: none;
 
+  ${({ onClick }) => !onClick && `cursor: default;`}
+
   &:hover {
     background: rgba(255, 255, 255, 0.1);
   }
