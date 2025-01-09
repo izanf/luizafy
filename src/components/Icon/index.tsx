@@ -21,9 +21,9 @@ const Icon = ({ name, size = 'medium' }: IconProps) => {
   const SelectedComponent = icons[name ?? 'home'];
 
   return (
-    <C.Figure size={ICON_SIZES[size]}>
-      <SelectedComponent aria-label={name} />
-    </C.Figure>
+    <C.Wrapper size={ICON_SIZES[size]} data-testid={`icon-${name}`}>
+      <SelectedComponent />
+    </C.Wrapper>
   )
 }
 

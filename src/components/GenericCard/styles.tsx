@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-export const Pressable = styled.a`
+export const Wrapper = styled.div`
+  display: flex;
+`;
+
+export const Pressable = styled.button`
+  flex: 1;
   display: flex;
   align-items: center;
   border-radius: .5rem;
@@ -8,6 +13,8 @@ export const Pressable = styled.a`
   padding: .5rem;
   cursor: pointer;
   text-decoration: none;
+  background: transparent;
+  border: none;
 
   ${({ onClick }) => !onClick && `cursor: default;`}
 
@@ -19,6 +26,7 @@ export const Pressable = styled.a`
 export const Content = styled.div`
   flex: 1;
   margin-left: 1rem;
+  text-align: left;
 `;
 
 export const Title = styled.h2`

@@ -4,9 +4,9 @@ import Icon from './';
 
 describe('Button Component', () => {
   it('should render the component correctly', () => {
-    render(<Icon name="home" />);
+    render(<Icon name="Home" />);
     
-    const imgElement = screen.getByRole('img');
+    const imgElement = screen.getByTestId('icon-Home');
 
     expect(imgElement).toBeInTheDocument();
   });

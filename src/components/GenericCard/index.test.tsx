@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import GenericCard from './';
 
@@ -7,7 +7,7 @@ describe('GenericCard Component', () => {
     title: 'Test title',
     description: 'Test descriptio',
     image: 'https://example.com/test-image.jpg',
-    path: 'https://example.com/test-path'
+    onClick: jest.fn()
   };
 
   it('should render the component correctly', () => {
@@ -22,8 +22,9 @@ describe('GenericCard Component', () => {
     const descriptionElement = screen.getByRole('paragraph');
     expect(descriptionElement).toBeInTheDocument();
 
-    const linkElement = screen.getByRole('link');
-    expect(linkElement).toBeInTheDocument();
+    const buttonElement = screen.getByRole('button', { name: /Test title/i });
+    fireEvent.click(buttonElement)
+    expect(props.onClick).toHaveBeenCalled();
   });
 
   it('should not render description if not have', () => {

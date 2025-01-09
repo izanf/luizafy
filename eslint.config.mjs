@@ -3,7 +3,6 @@ import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 
-
 const rules = {
   "react/react-in-jsx-scope": "off"
 }
@@ -15,5 +14,6 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
-  { rules }
+  { rules },
+  { plugins: ['plugin:testing-library/react']}
 ];

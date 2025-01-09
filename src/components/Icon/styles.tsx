@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 
-export const Figure = styled.figure<{ size: number }>`
+export const Wrapper = styled.div<{ size: number }>`
   display: flex;
-  margin: 0;
-  width: ${({ size }) => size}px;
-  height: 24px;
-`;
+  align-items: center;
 
-export const Image = styled.img`
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+  svg {
+    width: ${({ size }) => size}px;
+    height: ${({ size }) => size}px;
+  }
 `;

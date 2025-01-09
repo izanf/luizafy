@@ -14,11 +14,8 @@ describe('Menu Component', () => {
   it('should render the menu items correctly', () => {
     render(<Menu />);
 
-    const linkElement = screen.getByRole('link', { name: 'disc Artistas' });
+    const linkElement = screen.getByRole('link', { name: 'Artistas' });
     expect(linkElement).toBeInTheDocument();
     expect(linkElement).toHaveAttribute('href', '/artists');
-
-    const iconElement = screen.getByRole('img', { name: 'disc' });
-    expect(iconElement).toBeInTheDocument();
   });
 });

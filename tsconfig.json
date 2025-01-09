@@ -4,7 +4,7 @@
 
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "bundler",
     "target": "es2015",
     "allowJs": false,

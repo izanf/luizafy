@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import * as C from './styles';
@@ -24,7 +24,7 @@ export default function ArtistAlbums() {
     title: name, image: images[0].url, description: formatDate(release_date), onClick: () => window.open(external_urls.spotify)
   }));
 
-  const getArtistProfile = async () => {
+  const getArtistProfile = useCallback(async () => {
     try {
       const response = await getSpotify<ArtistProfileType>(`/artists/${artistId}`)
 
@@ -32,11 +32,11 @@ export default function ArtistAlbums() {
     } catch (err) {
       console.log(err)
     }
-  }
+  }, [artistId])
 
   useEffect(() => {
     getArtistProfile();
-  }, [])
+  }, [getArtistProfile])
 
   const goBack = () => {
     navigate(-1);
@@ -46,7 +46,7 @@ export default function ArtistAlbums() {
     <C.Wrapper ref={pageRef}>
       <C.Header>
         <C.GoBackButton onClick={goBack}>
-          <Icon name="arrowLeft" />
+          <Icon name="ArrowLeft" />
         </C.GoBackButton>
         <C.Title>{profile?.name}</C.Title>
         <Avatar image={profile?.images[0].url} name={profile?.name} size="small" rounded />

@@ -13,7 +13,7 @@ export const Title = styled.h1`
   font-size: 1rem;
   font-height: 1.1rem;
   font-weight: bold;
-  margin: .7rem 1rem;
+  margin: 1rem;
   color: white;
 `;
 
@@ -23,9 +23,10 @@ export const GoBackButton = styled.button`
   border: none;
   background: transparent;
   cursor: pointer;
-  padding: .5rem;
+  padding: .6rem;
+  color: white;
 
   &:hover {
-    opacity: 0.9;
+    color: #EEE;
   }
 `;

@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 
 const useInfiniteScroll = (ref: React.RefObject<HTMLDivElement>, callback: VoidFunction) => {
-
   const handleScroll = () => {
     if (ref.current) {
       const { scrollHeight, scrollTop, clientHeight } = ref.current;

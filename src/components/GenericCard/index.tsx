@@ -11,13 +11,15 @@ interface GenericCardProps {
 };
 
 const GenericCard = ({ title, description, image, avatarRounded, onClick }: GenericCardProps) => (
-  <C.Pressable onClick={onClick}>
-    <Avatar image={image} name={title} size="small" rounded={avatarRounded} />
-    <C.Content>
-      <C.Title>{title}</C.Title>
-      {description && <C.Description>{description}</C.Description>}
-    </C.Content>
-  </C.Pressable>
+  <C.Wrapper>
+    <C.Pressable onClick={onClick}>
+      <Avatar image={image} name={title} size="small" rounded={avatarRounded} />
+      <C.Content>
+        <C.Title>{title}</C.Title>
+        {description && <C.Description>{description}</C.Description>}
+      </C.Content>
+    </C.Pressable>
+  </C.Wrapper>
 );
 
 export default GenericCard;
