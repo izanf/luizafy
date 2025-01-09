@@ -10,7 +10,7 @@ import Profile from './Profile'
 
 import { Layout } from './components';
 
-export const ProtectedRoute = ({ children }) => {
+export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const code = localStorage.getItem('access_token');
 
   if (!code) {
@@ -24,40 +24,39 @@ export const ProtectedRoute = ({ children }) => {
   );
 };
 
-const Router = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/callback" element={<Callback />} />
-        <Route index element={
-          <ProtectedRoute>
-            <Home />
-          </ProtectedRoute>
-        } />
-        <Route path="/artists" element={
-          <ProtectedRoute>
-            <Artists />
-          </ProtectedRoute>
-        } />
-        <Route path="/artists/:artistId/albums" element={
-          <ProtectedRoute>
-            <ArtistAlbums />
-          </ProtectedRoute>
-        } />
-        <Route path="/playlists" element={
-          <ProtectedRoute>
-            <Playlists />
-          </ProtectedRoute>
-        } />
-        <Route path="/profile" element={
-          <ProtectedRoute>
-            <Profile />
-          </ProtectedRoute>
-        } />
-      </Routes>
-    </BrowserRouter>
-  )
-}
+const Router = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/callback" element={<Callback />} />
+      <Route index element={
+        <ProtectedRoute>
+          <Home />
+        </ProtectedRoute>
+      } />
+      <Route path="/artists" element={
+        <ProtectedRoute>
+          <Artists />
+        </ProtectedRoute>
+      } />
+      <Route path="/artists/:artistId/albums" element={
+        <ProtectedRoute>
+          <ArtistAlbums />
+        </ProtectedRoute>
+      } />
+      <Route path="/playlists" element={
+        <ProtectedRoute>
+          <Playlists />
+        </ProtectedRoute>
+      } />
+      <Route path="/profile" element={
+        <ProtectedRoute>
+          <Profile />
+        </ProtectedRoute>
+      } />
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
+  </BrowserRouter>
+);
 
-export default Router
+export default Router;

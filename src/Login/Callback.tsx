@@ -1,7 +1,9 @@
-import { useSearchParams } from 'react-router'
+import { useEffect } from 'react';
+import { useSearchParams } from 'react-router';
 
-import { getToken } from '../services/spotify'
-import { useEffect } from 'react'
+import { getToken } from '../services/spotify';
+
+import * as C from './styles';
 
 export default function Callback() {
   const [searchParams] = useSearchParams()
@@ -18,8 +20,8 @@ export default function Callback() {
   }, [code])
 
   return (
-    <div>
-      <p>Redirecting...</p>
-    </div>
+    <C.Wrapper>
+      <C.Text>Redirecionando...</C.Text>
+    </C.Wrapper>
   )
 }

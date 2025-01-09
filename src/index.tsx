@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 
+import GlobalStyle from './GlobalStyle';
+
+
 import Router from './Router';
 
 const root = ReactDOM.createRoot(
@@ -9,6 +12,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    <GlobalStyle />
     <Router />
   </React.StrictMode>
 );
