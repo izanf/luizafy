@@ -5,39 +5,19 @@ import { GenericCard } from '../components';
 
 import * as C from './styles';
 
-import useArtists from "./useArtists";
+import { useFetchPaginated, useInfiniteScroll } from '../hooks';
+import { ArtistItemType } from '../types/spotify.type';
 
 export default function Artists() {
   const navigate = useNavigate();
   const pageRef = useRef<HTMLDivElement>(null);
-  const { data, hasNext, getArtists} = useArtists();
+  const { data, nextPage } = useFetchPaginated<ArtistItemType>(`/me/top/artists`);
+  useInfiniteScroll(pageRef, nextPage);
   const artists = data.map(({ name, images, id }) => ({
     title: name,
     image: images[0].url,
     onClick: () => navigate(`/artists/${id}/albums`)
   }));
-
-  const handleScroll = () => {
-    if (pageRef.current && hasNext) {
-      const { scrollHeight, scrollTop, clientHeight } = pageRef.current;
-
-      if (scrollHeight - scrollTop - .5 === clientHeight) {
-        getArtists();
-      }
-    }
-  };
-
-  useEffect(() => {
-    if (pageRef.current) {
-      pageRef.current.addEventListener('scroll', handleScroll);
-    }
-
-    return () => {
-      if (pageRef.current) {
-        pageRef.current.removeEventListener('scroll', handleScroll);
-      }
-    };
-  });
 
   return (
     <C.Wrapper ref={pageRef}>

@@ -1,4 +1,3 @@
-import { SpotifyFetchResponse } from '../types/spotify.type';
 import { interceptResponse } from './interceptors';
 
 const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID ?? '';
@@ -40,7 +39,7 @@ export const login = async () => {
   const hashed = await sha256(codeVerifier);
   const codeChallenge = base64encode(hashed);
 
-  const scope = 'user-read-private user-read-email user-follow-read';
+  const scope = 'user-read-private user-read-email user-top-read';
   const authUrl = new URL("https://accounts.spotify.com/authorize")
 
   window.localStorage.setItem('code_verifier', codeVerifier);
