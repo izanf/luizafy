@@ -5,7 +5,7 @@ import * as C from './styles';
 
 import { formatDate } from '../utils';
 
-import { GenericCard, Icon, Avatar } from '../components';
+import { GenericCard, Icon, Avatar, ContentWrapper } from '../components';
 
 import { AlbumItemType, ArtistProfileType } from '../types/spotify.type';
 
@@ -39,17 +39,17 @@ export default function ArtistAlbums() {
   }
 
   return (
-    <C.Wrapper ref={pageRef}>
+    <ContentWrapper ref={pageRef}>
       <C.Header>
         <C.GoBackButton onClick={goBack}>
           <Icon name="ArrowLeft" />
         </C.GoBackButton>
-        <C.Title>{profile?.name}</C.Title>
+        <C.Title>Albums: {profile?.name}</C.Title>
         <Avatar image={profile?.images[0].url} name={profile?.name} size="small" rounded />
       </C.Header>
       <C.Content>
         {albums.map((album, index) => (<GenericCard key={`albums-${album.id}-${index}`} {...album} />))}
       </C.Content>
-    </C.Wrapper>
+    </ContentWrapper>
   );
 };

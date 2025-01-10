@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import * as C from './styles';
-import { Button, Avatar } from '../components';
+import { Button, Avatar, ContentWrapper } from '../components';
 
 import type { SpotifyUser } from '../types/spotify.type';
 
@@ -23,10 +23,12 @@ export default function Profile() {
   if (!profile) return null
 
   return (
-    <C.Wrapper>
-      <Avatar image={profile.images[0].url} name={profile.display_name} rounded />
-      <C.Name>{profile.display_name}</C.Name>
-      <Button onClick={logout}>Sair</Button>
-    </C.Wrapper>
+    <ContentWrapper>
+      <C.Wrapper>
+        <Avatar image={profile.images[0].url} name={profile.display_name} rounded />
+        <C.Name>{profile.display_name}</C.Name>
+        <Button onClick={logout}>Sair</Button>
+      </C.Wrapper>
+    </ContentWrapper>
   );
 };

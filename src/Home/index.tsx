@@ -1,7 +1,9 @@
+import { ContentWrapper } from "../components";
+
 export default function Home() {
   return (
-    <div>
-      homew
-    </div>
+    <ContentWrapper>
+      Home
+    </ContentWrapper>
   )
 }

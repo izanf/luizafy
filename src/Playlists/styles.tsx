@@ -7,6 +7,16 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 2rem .5rem;
+
+  @media (max-width: 568px) {
+    flex-direction: column;
+    align-items: flex-start;
+    
+    button {
+      align-self: center;
+      margin-top: 1rem;
+    }
+  }
 `;
 
 export const TitleWrapper = styled.div``;

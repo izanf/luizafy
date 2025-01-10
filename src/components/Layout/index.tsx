@@ -1,5 +1,6 @@
-import * as C from './styles';
 import Menu from '../Menu';
+
+import * as C from './styles';
 
 interface LayoutProps {
   children: React.ReactNode;

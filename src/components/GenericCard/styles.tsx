@@ -21,6 +21,10 @@ export const Pressable = styled.button`
   &:hover {
     background: rgba(255, 255, 255, 0.1);
   }
+
+  @media (max-width: 568px) {
+    margin: 0;
+  }
 `;
 
 export const Content = styled.div`

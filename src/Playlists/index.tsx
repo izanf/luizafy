@@ -1,6 +1,6 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 
-import { Button, GenericCard } from '../components';
+import { Button, ContentWrapper, GenericCard } from '../components';
 
 import * as C from './styles';
 
@@ -20,7 +20,7 @@ export default function Playlists() {
   }));
 
   return (
-    <C.Wrapper ref={pageRef}>
+    <ContentWrapper ref={pageRef}>
       <C.Header>
         <C.TitleWrapper>
           <C.Title>Minhas Playlists</C.Title>
@@ -29,6 +29,6 @@ export default function Playlists() {
         <Button>Criar playlist</Button>
       </C.Header>
       {playlists.map((playlist, index) => <GenericCard key={index} {...playlist} />)}
-    </C.Wrapper>
+    </ContentWrapper>
   );
 }

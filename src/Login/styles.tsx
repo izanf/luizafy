@@ -15,4 +15,5 @@ export const Image = styled.img``;
 export const Text = styled.p`
   font-weight: 500;
   color: white;
+  text-align: center;
 `;

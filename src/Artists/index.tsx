@@ -1,7 +1,7 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { useNavigate } from "react-router";
 
-import { GenericCard } from '../components';
+import { ContentWrapper, GenericCard } from '../components';
 
 import * as C from './styles';
 
@@ -20,12 +20,12 @@ export default function Artists() {
   }));
 
   return (
-    <C.Wrapper ref={pageRef}>
+    <ContentWrapper ref={pageRef}>
       <C.Header>
         <C.Title>Top Artistas</C.Title>
         <C.Description>Aqui você encontra seus artistas preferidos</C.Description>
       </C.Header>
       {artists.map((artist, index) => <GenericCard key={index} {...artist} avatarRounded />)}
-    </C.Wrapper>
+    </ContentWrapper>
   );
 };
