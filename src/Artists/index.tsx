@@ -7,6 +7,7 @@ import * as C from './styles';
 
 import { useFetchPaginated, useInfiniteScroll } from '../hooks';
 import { ArtistItemType } from '../types/spotify.type';
+import { getImage } from '../utils';
 
 export default function Artists() {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ export default function Artists() {
   useInfiniteScroll(pageRef, nextPage);
   const artists = data.map(({ name, images, id }) => ({
     title: name,
-    image: images[0].url,
+    image: getImage(images, 128),
     onClick: () => navigate(`/artists/${id}/albums`)
   }));
 

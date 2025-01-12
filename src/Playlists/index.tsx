@@ -8,15 +8,17 @@ import { PlaylistItemType } from '../types/spotify.type';
 
 import { useFetchPaginated, useInfiniteScroll } from '../hooks';
 
+import { getImage } from '../utils';
+
 export default function Playlists() {
   const pageRef = useRef<HTMLDivElement>(null);
   const { data, nextPage } = useFetchPaginated<PlaylistItemType>(`/me/playlists`);
   useInfiniteScroll(pageRef, nextPage);
   const playlists = data.map(({ name, images, external_urls, description }) => ({
     title: name,
-    image: images[0].url,
-    path: external_urls.spotify,
-    description
+    image: getImage(images, 128),
+    description,
+    onClick: () => window.open(external_urls.spotify)
   }));
 
   return (

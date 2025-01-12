@@ -22,7 +22,7 @@ export type SpotifyUser = {
   }[];
 };
 
-type Image = {
+export type ImageType = {
   url: string;
   height: number;
   width: number;
@@ -38,7 +38,7 @@ export type PlaylistItemType = {
   external_urls: { spotify: string };
   href: string;
   id: string;
-  images: Image[];
+  images: ImageType[];
   name: string;
   primary_color: string | null;
   public: boolean;
@@ -68,7 +68,7 @@ export type AlbumItemType = {
   external_urls: ExternalUrls;
   href: string;
   id: string;
-  images: Image[];
+  images: ImageType[];
   name: string;
   release_date: string;
   release_date_precision: string;
@@ -85,10 +85,10 @@ export type ArtistItemType = {
   name: string;
   type: string;
   uri: string;
-  images: Image[];
+  images: ImageType[];
 }
 
 export type ArtistProfileType = {
-  images: Image[];
+  images: ImageType[];
   name: string;
 }

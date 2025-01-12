@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 import * as C from './styles';
 
-import { formatDate } from '../utils';
+import { formatDate, getImage } from '../utils';
 
 import { GenericCard, Icon, Avatar, ContentWrapper } from '../components';
 
@@ -21,7 +21,10 @@ export default function ArtistAlbums() {
   useInfiniteScroll(pageRef, nextPage);
 
   const albums = data.map(({ name, images, release_date, external_urls }) => ({
-    title: name, image: images[0].url, description: formatDate(release_date), onClick: () => window.open(external_urls.spotify)
+    title: name,
+    image: getImage(images, 128),
+    description: formatDate(release_date),
+    onClick: () => window.open(external_urls.spotify)
   }));
 
   const getArtistProfile = useCallback(async () => {
