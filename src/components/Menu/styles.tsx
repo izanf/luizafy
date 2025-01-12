@@ -28,11 +28,11 @@ export const MenuList = styled.ul`
   }
 `;
 
-export const MenuItem = styled.li`
+export const MenuItem = styled.li<{ active: boolean }>`
   a {
     display: flex;
     align-items: center;
-    color: #949EA2;
+    color: ${({ active }) => active ? 'white' : '#949EA2'};
     text-decoration: none;
     padding: 1rem 0;
     font-size: 1.25rem;

@@ -16,13 +16,15 @@ export const MENU_ITEMS: MenuItem[] = [
   { label: 'Perfil', path: '/profile', icon: 'User' }
 ]
 
+const ativePath = window.location.pathname;
+
 const Menu = () => {
   return (
     <C.Wrapper>
       <C.Logo src={logo} alt="Luizafy" />
       <C.MenuList>
         {MENU_ITEMS.map(({ label, icon, path }, index) => (
-          <C.MenuItem key={`menu-item-${index}`}>
+          <C.MenuItem key={`menu-item-${index}`} active={ativePath === path}>
             <a href={path}>
               <Icon name={icon} size="small" />
               <span>{label}</span>

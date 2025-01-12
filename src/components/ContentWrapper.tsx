@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+const windowHeight = window.innerHeight;
+
 const ContentWrapper = styled.div`
   grid-area: content;
   overflow-y: auto;
@@ -8,7 +10,7 @@ const ContentWrapper = styled.div`
 
   @media (max-width: 568px) { 
     padding: .5rem;
-    height: calc(100vh - 72px - 1rem);
+    height: calc(100dvh - 72px - 1rem);
   }
 `;
 

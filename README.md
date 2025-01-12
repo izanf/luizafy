@@ -23,6 +23,6 @@ Este projeto foi feito utilizando [Create React App](https://github.com/facebook
 - [ ] Testes E2E
 - [ ] Integração com Sentry
 - [X] CI/CD
-- [ ] Responsividade (celular e tablet)
+- [X] Responsividade (celular e tablet)
 - [ ] Qualidade de código (Sonarqube)
 - [ ] PWA
