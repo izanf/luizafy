@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-const windowHeight = window.innerHeight;
-
 const ContentWrapper = styled.div`
   grid-area: content;
   overflow-y: auto;
